@@ -19,6 +19,7 @@ public interface CodeAMon {
 	double bonus = 0;
 	boolean isDead = false;
 	String type = "NONE";
+	enum weather { CLEAR, RAIN, WINDY, SUNNY; }
 
 	public void attack(CodeAMon opponent);
 	public void takeDamage(CodeAMon opponent);
