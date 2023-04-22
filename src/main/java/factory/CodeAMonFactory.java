@@ -18,7 +18,7 @@ public class CodeAMonFactory {
 	 * @param rnd random number from 0 to 10
 	 * @return a random code-a-mon character
 	 */
-	public CodeAMon getType(int rnd) {
+	public static CodeAMon getType(double rnd) {
 		BasicCodeAMon basicCodeAMon = new BasicCodeAMon();
 		// fire
 		if (0 <= rnd && rnd < 2.5) {
@@ -45,7 +45,7 @@ public class CodeAMonFactory {
 	 * @param charType type of the code-a-mon
 	 * @return a random code-a-mon character
 	 */
-	public CodeAMon getType(String charType) {
+	public static CodeAMon getType(String charType) {
 		BasicCodeAMon basicCodeAMon = new BasicCodeAMon();
 		String type = charType.toUpperCase();
 		// fire
