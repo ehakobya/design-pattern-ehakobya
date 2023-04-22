@@ -1,5 +1,7 @@
 package factory;
 
+import decorator.*;
+
 /**
  * Factory class for building Code A Mons
  *
@@ -17,21 +19,22 @@ public class CodeAMonFactory {
 	 * @return a random code-a-mon character
 	 */
 	public CodeAMon getType(int rnd) {
+		BasicCodeAMon basicCodeAMon = new BasicCodeAMon();
 		// fire
 		if (0 <= rnd && rnd < 2.5) {
-			return new FireMon();
+			return new FireMon(basicCodeAMon);
 		}
 		// earth
 		else if (2.5 <= rnd && rnd < 5) {
-			return new EarthMon();
+			return new EarthMon(basicCodeAMon);
 		}
 		// water
 		else if (5 <= rnd && rnd < 7.5) {
-			return new WaterMon();
+			return new WaterMon(basicCodeAMon);
 		}
 		// wind
 		else if (7.5 <= rnd && rnd < 10) {
-			return new WindMon();
+			return new WindMon(basicCodeAMon);
 		} else {
 			return null;
 		}
@@ -43,22 +46,23 @@ public class CodeAMonFactory {
 	 * @return a random code-a-mon character
 	 */
 	public CodeAMon getType(String charType) {
+		BasicCodeAMon basicCodeAMon = new BasicCodeAMon();
 		String type = charType.toUpperCase();
 		// fire
 		if (type.equals("FIRE")) {
-			return new FireMon();
+			return new FireMon(basicCodeAMon);
 		}
 		// earth
 		else if (type.equals("EARTH")) {
-			return new EarthMon();
+			return new EarthMon(basicCodeAMon);
 		}
 		// water
 		else if (type.equals("WATER")) {
-			return new WaterMon();
+			return new WaterMon(basicCodeAMon);
 		}
 		// wind
 		else if (type.equals("WIND")) {
-			return new WindMon();
+			return new WindMon(basicCodeAMon);
 		} else {
 			return null;
 		}
