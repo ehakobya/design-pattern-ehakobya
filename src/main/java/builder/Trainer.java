@@ -1,8 +1,10 @@
 package builder;
 
 import decorator.CodeAMon;
+import factory.CodeAMonFactory;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Trainer {
 
@@ -29,7 +31,7 @@ public class Trainer {
 
 
 	public Trainer(TrainerBuilder builder) {
-
+		this.trainerName = builder.trainerName;
 	}
 
 	public static class TrainerBuilder {
@@ -41,23 +43,16 @@ public class Trainer {
 		public TrainerBuilder(String name) {
 			this.trainerName = name;
 			this.team = new ArrayList<>();
-//			this.team.add() USE FACTORY TO RANDOMLY CREATE A CODEAMON
+			Random rnd = new Random();
+			double rand = rnd.nextDouble() * 10;
+			CodeAMon codeAMon = CodeAMonFactory.getType(rand);
+			this.team.add(codeAMon);
 		}
 
 		public Trainer build() {
 			return new Trainer(this);
 		}
 	}
-
-
-
-
-
-
-
-
-
-
 
 
 }
