@@ -60,5 +60,6 @@ public class CodeAMonDecorator implements CodeAMon {
 	public void setType(String type) { this.codeAMon.setType(type); }
 
 	@Override
-	public void setBonus(double bonus) { this.codeAMon.setBonus(bonus); }
+	public void setBonus(double bonus) { this.codeAMon.setBonus(bonus);
+	}
 }
