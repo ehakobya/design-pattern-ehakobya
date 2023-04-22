@@ -1,6 +1,6 @@
 package builder;
 
-import factory.CodeAMon;
+import decorator.CodeAMon;
 
 import java.util.ArrayList;
 
