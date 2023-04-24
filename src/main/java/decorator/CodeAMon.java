@@ -11,6 +11,7 @@ package decorator;
 public interface CodeAMon {
 
 	double currentHP = 0;
+	String name = "NONE";
 	double maxHP = 0;
 	double xp = 0;
 	double levelUpThreshold = 0;
@@ -23,9 +24,11 @@ public interface CodeAMon {
 
 	public void attack(CodeAMon opponent);
 	public void takeDamage(CodeAMon opponent);
-	public void heal();
+	public double heal();
 	public void levelUp();
 	public double getCurrentHP();
+	public String getName();
+	public void setName(String name);
 	public double getMaxHP();
 	public double getXp();
 	public double getAttack();
