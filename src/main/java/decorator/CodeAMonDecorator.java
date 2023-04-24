@@ -15,13 +15,23 @@ public class CodeAMonDecorator implements CodeAMon {
 	public void takeDamage(CodeAMon opponent) { this.codeAMon.takeDamage(opponent); }
 
 	@Override
-	public void heal() { this.codeAMon.heal(); }
+	public double heal() { return this.codeAMon.heal(); }
 
 	@Override
 	public void levelUp() { this.codeAMon.levelUp(); }
 
 	@Override
 	public double getCurrentHP() { return this.codeAMon.getCurrentHP(); }
+
+	@Override
+	public String getName() {
+		return this.codeAMon.getName();
+	}
+
+	@Override
+	public void setName(String name) {
+		this.codeAMon.setName(name);
+	}
 
 	@Override
 	public double getMaxHP() { return this.codeAMon.getMaxHP(); }
