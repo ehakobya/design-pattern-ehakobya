@@ -21,6 +21,8 @@ public class Trainer {
 		return gold;
 	}
 
+	public void setGold(int gold) { this.gold = gold; }
+
 	public int getXP() {
 		return XP;
 	}
