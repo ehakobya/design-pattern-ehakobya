@@ -3,6 +3,7 @@ package decorator;
 public class BasicCodeAMon implements CodeAMon {
 
 	double currentHP = 100;
+	String name;
 	double maxHP = 100;
 	double xp = 0;
 	double levelUpThreshold = 20;
@@ -37,11 +38,15 @@ public class BasicCodeAMon implements CodeAMon {
 	}
 
 	@Override
-	public void heal() {
+	public double heal() {
+		double healAmount = 0;
 		if (!this.isDead() && currentHP <= maxHP / 2) {
+			double previousHP = currentHP;
 			// if health below 50% then heal by 20%
 			currentHP += currentHP * 0.2;
+			healAmount = currentHP - previousHP;
 		}
+		return healAmount;
 	}
 
 	@Override
@@ -56,6 +61,16 @@ public class BasicCodeAMon implements CodeAMon {
 	@Override
 	public double getCurrentHP() {
 		return this.currentHP;
+	}
+
+	@Override
+	public String getName() {
+		return this.name;
+	}
+
+	@Override
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	@Override
@@ -90,7 +105,7 @@ public class BasicCodeAMon implements CodeAMon {
 
 	@Override
 	public boolean isDead() {
-		return this.isDead;
+		return !(currentHP > 0);
 	}
 
 	@Override
