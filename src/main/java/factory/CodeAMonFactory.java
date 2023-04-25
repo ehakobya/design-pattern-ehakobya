@@ -1,7 +1,5 @@
 package factory;
 
-import decorator.*;
-
 /**
  * Factory class for building Code A Mons
  *
@@ -18,25 +16,21 @@ public class CodeAMonFactory {
 	 * @param rnd random number from 0 to 10
 	 * @return a random code-a-mon character
 	 */
-	public static CodeAMon getType(double rnd) {
-		BasicCodeAMon basicCodeAMon = new BasicCodeAMon();
+	public static CodeAMon getType(int rnd) {
 		// fire
-		if (0 <= rnd && rnd < 2.5) {
-			return new FireMon(basicCodeAMon);
+		if (rnd == 0) {
+			return new FireMon();
 		}
 		// earth
-		else if (2.5 <= rnd && rnd < 5) {
-			return new EarthMon(basicCodeAMon);
+		else if (rnd == 1) {
+			return new NatureMon();
 		}
 		// water
-		else if (5 <= rnd && rnd < 7.5) {
-			return new WaterMon(basicCodeAMon);
+		else if (rnd == 2) {
+			return new WaterMon();
 		}
-		// wind
-		else if (7.5 <= rnd && rnd < 10) {
-			return new WindMon(basicCodeAMon);
-		} else {
-			return null;
+		else {
+			throw new IllegalArgumentException("> Error: Cannot generate code-a-mon\n");
 		}
 	}
 
@@ -46,25 +40,21 @@ public class CodeAMonFactory {
 	 * @return a random code-a-mon character
 	 */
 	public static CodeAMon getType(String charType) {
-		BasicCodeAMon basicCodeAMon = new BasicCodeAMon();
 		String type = charType.toUpperCase();
 		// fire
 		if (type.equals("FIRE")) {
-			return new FireMon(basicCodeAMon);
+			return new FireMon();
 		}
 		// earth
 		else if (type.equals("EARTH")) {
-			return new EarthMon(basicCodeAMon);
+			return new NatureMon();
 		}
 		// water
 		else if (type.equals("WATER")) {
-			return new WaterMon(basicCodeAMon);
+			return new WaterMon();
 		}
-		// wind
-		else if (type.equals("WIND")) {
-			return new WindMon(basicCodeAMon);
-		} else {
-			return null;
+		else {
+			throw new IllegalArgumentException("> Error: Cannot generate code-a-mon\n");
 		}
 	}
 }
