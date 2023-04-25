@@ -4,11 +4,15 @@
 
 > - For this project I could use decorator pattern to allow a code-a-mon to gain new abilities when they level up
 >
-> - Also I could use a factory pattern to create and instantiate different kindo of code-a-mon.
+> - Also I could use a factory pattern to create and instantiate different kind of code-a-mon.
 >
-> - Mediator pattern could be used to provide communication between objects. Instaed of objects communication with each other, all object communication goes through the mediator.
+> - Mediator pattern could be used to provide communication between objects. Installed of objects communication with each other, all object communication goes through the mediator.
 
 ## Assignment 5B
+
+### Screen Cast Link: https://youtu.be/8HxPdQVgd2g
+
+---
 
 ### Requirements
 
@@ -35,7 +39,7 @@
 
 ![checkstyle-report.png](doc%2Fcheckstyle-report.png)
 
-> - At first the checkstyle report showed over a 1000 errors. The issue was resolved by changing the IDE settings to use spaces instead of tabs. This brought down the number of errors from 1000 to approximately 200. All important errors were corrected. The remaining ones are left alone **On Purpose**.
+> - At first the checkstyle report showed over 1000 errors. The issue was resolved by changing the IDE settings to use spaces instead of tabs. This brought down the number of errors from 1000 to approximately 200. All important errors were corrected. The remaining ones are left alone **On Purpose**.
 
 ### Spotbugs Report
 
