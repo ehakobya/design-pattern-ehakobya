@@ -1,6 +1,6 @@
 package builder;
 
-import decorator.CodeAMon;
+import factory.CodeAMon;
 import factory.CodeAMonFactory;
 
 import java.util.ArrayList;
@@ -9,8 +9,7 @@ import java.util.Random;
 public class Trainer {
 
 	private String trainerName;
-	private int gold = 20; // starting amount for all trainers
-	private int XP = 0;
+	private int gold;
 	private ArrayList<CodeAMon> team;
 
 	public String getTrainerName() {
@@ -21,40 +20,59 @@ public class Trainer {
 		return gold;
 	}
 
-	public void setGold(int gold) { this.gold = gold; }
-
-	public int getXP() {
-		return XP;
-	}
-
 	public ArrayList<CodeAMon> getTeam() {
 		return team;
 	}
 
+	public void setGold(int gold) {
+		this.gold = gold;
+	}
 
-	public Trainer(TrainerBuilder builder) {
-		this.trainerName = builder.trainerName;
+	public Trainer(String name, ArrayList<CodeAMon> team) {
+		this.team = team;
+		this.trainerName = name;
 	}
 
 	public static class TrainerBuilder {
-		private String trainerName;
-		private int gold;
-		private int XP;
-		private ArrayList<CodeAMon> team;
 
-		public TrainerBuilder(String name) {
-			this.trainerName = name;
-			this.team = new ArrayList<>();
-			Random rnd = new Random();
-			double rand = rnd.nextDouble() * 10;
-			CodeAMon codeAMon = CodeAMonFactory.getType(rand);
-			this.team.add(codeAMon);
+		private CodeAMonFactory codeAMonFactory;
+
+		public TrainerBuilder(CodeAMonFactory codeAMonFactory) {
+			this.codeAMonFactory = codeAMonFactory;
 		}
 
 		public Trainer build() {
-			return new Trainer(this);
+
+			String[] randomNamesArray = {
+					"Elora Zhang",
+					"Isaias White",
+					"Layla Christensen",
+					"Gregory Woods",
+					"Reese Flowers",
+					"Saul Livingston",
+					"Milena Grant",
+					"Leon Stein",
+					"Leilany Bass",
+					"Landen Alvarado",
+					"Blake Torres",
+					"Jayden Andrews",
+					"Payton Davila",
+					"Grey Cabrera",
+					"Daleyza Fernandez"
+			};
+
+			ArrayList<CodeAMon> team = new ArrayList<>();
+			Random rnd = new Random();
+			int rand = rnd.nextInt(3);
+			int codeAMonCount = rnd.nextInt(5) + 1;
+
+			for (int i = 0; i < codeAMonCount; i ++) {
+//				CodeAMon codeAMon = CodeAMonFactory.getType(rand);
+				team.add(codeAMonFactory.getType(rand));
+			}
+
+			int randomNameIndex = rnd.nextInt(15);
+			return new Trainer(randomNamesArray[randomNameIndex], team);
 		}
 	}
-
-
 }
